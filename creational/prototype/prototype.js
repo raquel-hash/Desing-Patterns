@@ -45,6 +45,22 @@ class Car {
     }
 }
 
+class MastodonCar extends Car {
+    constructor(carToClone) {
+        super({
+            edition: carToClone?.edition,
+            color: carToClone?.color,
+            model: carToClone?.model,
+            airBags: carToClone?.airBags,
+        })
+    }
+
+    //step 2
+    clone() {
+        return new MastodonCar(this);
+    }
+}
+
 class CarProductLine {
     setAirBags(airBagsNumber) {
         throw new Error('Method not implemented!');
@@ -105,22 +121,6 @@ class SedanProductLine extends CarProductLine {
         const sedanCar = this.sedanCar;
         this.resetProductLine();
         return sedanCar;
-    }
-}
-
-// step 2
-class MastodonCar extends Car {
-    constructor(carToClone) {
-        super({
-            edition: carToClone?.edition,
-            color: carToClone?.color,
-            model: carToClone?.model,
-            airBags: carToClone?.airBags,
-        })
-    }
-
-    clone() {
-        return new MastodonCar(this);
     }
 }
 
